@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mauricio Navarro">
+    <title> Topic 0.1.vi </title>
+</head>
+
+<body>
+
+    <form>  
+        <ul>
+            <li>
+                <label for="fname"> First name: </label>  
+                <input type="text" name="First name" id="fname" value="" required />
+            </li>
+
+            <li>
+                <label for="lname"> Last name: </label>
+                <input type="text" name="Last name" id="lname" value="" required />
+            </li>
+
+            <li>
+                <label for="email"> Email: </label>
+                <input type="email" name="Email" id="email" value="" required placeholder="Enter a valid email address" />
+            </li>
+
+            <li>
+                <label for="bday"> Birthday </label>
+                <input type="date" name="Birthday" id="bday" value="" required /> <br>
+            </li>
+
+            <li>
+                <label for="favsport"> Favorite sport </label>
+                <select name="favorite sport" id="favsport" required>
+                    <option value=""> Choose one </option>
+                    <option value="football"> football </option>
+                    <option value="basketball"> basketball </option>
+                    <option value="tennis"> tennis </option>
+                    <option value="hockey"> hockey </option>
+                    <option value="boxing"> boxing </option>
+                    <option value="mixed martial arts"> mixed martial arts </option>
+                    <option value="voleyball"> voleyball </option>
+                    <option value="other"> other </option>
+                </select>
+            </li>
+            
+            <li>
+                <label for="bio"> Biography </label> <br/>
+                <textarea name="biography" id="bio" cols="30" rows="10" required ></textarea>
+            </li>    
+            
+            <li>
+                <input type="submit" value="submit">
+                <input type="reset"  value="reset">
+            </li>
+    </ul>        
+    </form>
+    
+</body>
+</html>

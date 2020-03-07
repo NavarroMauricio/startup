@@ -7,3 +7,7 @@ setTimeout(function() {
     element.classList.remove("hidden");              
     },700);
 }
+
+function alertFunction(){  
+    alert("an alert message");
+}

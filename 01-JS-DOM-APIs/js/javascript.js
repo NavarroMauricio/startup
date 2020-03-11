@@ -8,6 +8,8 @@ function appearInFullLoad() { /* Show the 'hello world' when the page is fully l
 	}, 700);
 }
 
+const btn= document.getElementById("btnjoke");
+btn.addEventListener("click",getJoke);  //when the user clicks on the button the function 'getJoke' will be executed
 
 function getJoke() {
 

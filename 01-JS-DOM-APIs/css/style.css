@@ -1,5 +1,5 @@
 * {
-    
+
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -34,6 +34,18 @@ button {
     border-radius: 10px;
 }
 
+table {
+   
+   width: 100%;
+   
+}
+
+th,td{
+    
+    border: black solid 1px;
+}
+
+
 .hidden   /*the class to hide the 'Hello world'*/
 {
     display:none;
@@ -50,8 +62,8 @@ button {
 }
 
 .left {
-    
-    float:left
+
+    float:left;
 }
 
 .right {

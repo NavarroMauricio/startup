@@ -42,11 +42,11 @@ function showTheJoke(myJson) {
 //the function changes the background to red in the section of the joke
 function errorDetected() {
 
-	document.getElementById("jokeZone").style.backgroundColor = "red";
+	document.querySelector("#jokeZone").style.backgroundColor="red";
 
 	/* you can also use the function below if you also want to show the user that an error happened in the section of the joke
 	
-	document.getElementById("jokeHere").innerHTML= "An error has occurred";
+	document.querySelector("#jokeZone").innerHTML= "An error has occurred";
 	*/
 
 }
@@ -95,7 +95,7 @@ function criptoTable() {
 	const cryptoURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h%22%20-H%20%22accept:%20application/json";
 
 	fetch(cryptoURL)
-	
+
 		.then(data => data.json())
 
 		.then(data => {

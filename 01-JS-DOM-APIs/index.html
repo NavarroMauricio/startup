@@ -13,42 +13,68 @@
 
 <body onload="appearInFullLoad()"> <!-- with onload my function will run when the entire page is loaded-->
     
-   <section>
+<div class="wrapper">
 
-        <h1>Lorem ipsum</h1>
+    <div class="left">
 
-        <div>
+        <section>
 
-            <p> dolor sit amet, consectetur adipiscing elit. 
-               Aenean varius dui nec ipsum dictum lacinia. Nulla eget est elit.
-               Mauris pharetra mollis pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-               Integer consequat, erat eu condimentum commodo, neque lectus eleifend tortor, et semper turpis
-               lorem quis orci. Duis id blandit mi. In sit amet ante gravida, consectetur magna quis, 
-               lacinia orci. Pellentesque elit magna, mollis vitae molestie sit amet, tincidunt nec ipsum.</p> 
+                <h1>Lorem ipsum</h1>
 
-        </div>
+                <div>
 
-   </section>
+                    <p> dolor sit amet, consectetur adipiscing elit. 
+                    Aenean varius dui nec ipsum dictum lacinia. Nulla eget est elit.
+                    Mauris pharetra mollis pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Integer consequat, erat eu condimentum commodo, neque lectus eleifend tortor, et semper turpis
+                    lorem quis orci. Duis id blandit mi. In sit amet ante gravida, consectetur magna quis, 
+                    lacinia orci. Pellentesque elit magna, mollis vitae molestie sit amet, tincidunt nec ipsum.</p> 
 
-    
-    <section class="hidden" id="hide">
+                </div>
 
-        <h1>  Hello world </h1>
-      
-    </section>
+        </section>
 
-    <section id="jokeZone">
+        
+        <section class="hidden" id="hide">
 
-            <button onclick="getJoke()" name="button" > Joke Button </button>
+            <h1>  Hello world </h1>
+        
+        </section>
 
-            <p id="jokeHere">  
+
+        <section id="jokeZone">
+
+                <button onclick="getJoke()" name="button" > Joke Button </button>
+
+                <p id="jokeHere">  
+                    
+                    <!--The joke will display here-->
+
+                </p>
                 
-                <!--The joke will display here-->
+        </section>
 
-            </p>
-            
-    </section>
+    </div>
 
+
+    <div class="right">
+
+        <section>
+
+                <h2>What repositories are you looking for?</h2>
+
+                <input type="text" name="" id="valueToSearch" placeholder="Enter any value here">
+
+                <button onclick="search()"> search</button>
+
+                <ul id="reposList">
+                    
+                </ul>
+
+        </section>
+    </div>
+
+</div>
 
 </body>
 </html>

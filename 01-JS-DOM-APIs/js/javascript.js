@@ -170,7 +170,7 @@ function tableComponent(tagname, textContent, tagFather) {
 
 	for (let i of textContent) {
 
-		const aux = document.createElement(tagname);
+		let aux = document.createElement(tagname);
 		aux.appendChild(document.createTextNode(i));
 		tagFather.appendChild(aux);
 

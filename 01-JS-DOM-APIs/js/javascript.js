@@ -1,15 +1,16 @@
 
 function appearInFullLoad() { /* Show the 'hello world' when the page is fully loaded */
 
-	setTimeout(function () {
+setTimeout(function () {
 
-		const element = document.getElementById("hide");
-		element.classList.remove("hidden");
-	}, 700);
+	const element = document.getElementById("hide");
+	element.classList.remove("hidden");
+}, 700);
 }
 
-const btn= document.getElementById("btnjoke");
-btn.addEventListener("click",getJoke);  //when the user clicks on the button the function 'getJoke' will be executed
+const btn = document.getElementById("btnjoke");
+
+btn.addEventListener("click", getJoke);
 
 function getJoke() {
 
@@ -37,19 +38,21 @@ function getJoke() {
 
 function showTheJoke(myJson) {
 
-	document.getElementById("jokeHere").innerHTML = myJson.value.joke;
+document.getElementById("jokeHere").innerHTML = myJson.value.joke;
+
 }
 
 
 //the function changes the background to red in the section of the joke
+
 function errorDetected() {
 
-	document.querySelector("#jokeZone").style.backgroundColor="red";
+document.querySelector("#jokeZone").style.backgroundColor = "red";
 
-	/* you can also use the function below if you also want to show the user that an error happened in the section of the joke
-	
-	document.querySelector("#jokeZone").innerHTML= "An error has occurred";
-	*/
+/* you can also use the function below if you also want to show the user that an error happened in the section of the joke
+
+document.getElementById("jokeHere").innerHTML= "An error has occurred";
+*/
 
 }
 
@@ -57,23 +60,45 @@ function errorDetected() {
 // point 4
 
 
-function search() {
+gitbtn = document.getElementById("gitButton");
+
+gitbtn.addEventListener("click", gitHubSearch);
+
+
+function gitHubSearch() {  //create the repository list
 
 	const parameter = document.getElementById("valueToSearch").value;
 
-	const url = `https://api.github.com/search/repositories?q=${parameter}`;
+	const urlGit = `https://api.github.com/search/repositories?q=${parameter}`;
 
-	fetch(url)
-		.then(data => data.json())
-		.then(data => {
-			showItem(data);
-		})
-		.catch(data => {
-			console.log("error detected");
-		})
-
+	apiCall(urlGit, showItem);
 
 }
+
+
+
+function apiCall(url, action) {
+
+	fetch(url)
+
+		.then(data => data.json())
+
+
+		.then(data => {
+
+			action(data);
+		})
+
+
+		.catch(data => {
+
+			console.log("error detected --> " + data);
+		})
+
+}
+
+
+
 
 function showItem(data) {
 
@@ -92,59 +117,39 @@ function showItem(data) {
 
 }
 
-
-function criptoTable() {
-	const cryptoURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h%22%20-H%20%22accept:%20application/json";
-
-	fetch(cryptoURL)
-
-		.then(data => data.json())
-
-		.then(data => {
-
-			tableGenerator(data);
-
-		})
-
-		.catch(data => {
-
-			console.log("error detected");
-		})
-
-
-}
-
+//point 6
 
 function tableGenerator(data) {
 
-	const crypto = data;
-
-	const getTable = document.getElementById("table"); //select the section
-
-	const table = document.createElement("table"); //create the table
-
-	const headtable = document.createElement("tr"); //create the head of the table
-
-	const headName = document.createElement("th");    //assign the articles in the table header
-	const headSymbol = document.createElement("th");
-	const headCurrentPrice = document.createElement("th");
-	const headMarketCapRank = document.createElement("th");
-	const headAth = document.createElement("th");
-
-	headName.appendChild(document.createTextNode("name"));
-	headSymbol.appendChild(document.createTextNode("Symbol"));
-	headCurrentPrice.appendChild(document.createTextNode("Current Price"));
-	headMarketCapRank.appendChild(document.createTextNode("Market Carp Rank"));
-	headAth.appendChild(document.createTextNode("All Time High(ath)"));
-
-	headtable.appendChild(headName);
-	headtable.appendChild(headSymbol);
-	headtable.appendChild(headCurrentPrice);
-	headtable.appendChild(headMarketCapRank);
-	headtable.appendChild(headAth);
+		const crypto = data;
 
 
-	const tableBody = document.createElement("tbody") //create the body of the table
+		const getTable = document.getElementById("table"); //select the section
+
+		const table = document.createElement("table"); //create the table
+
+		const headtable = document.createElement("tr"); //create the head of the table
+
+		const headName = document.createElement("th");            //assign the articles in the table header
+		const headSymbol = document.createElement("th");
+		const headCurrentPrice = document.createElement("th");
+		const headMarketCapRank = document.createElement("th");
+		const headAth = document.createElement("th");
+
+		headName.appendChild(document.createTextNode("name"));
+		headSymbol.appendChild(document.createTextNode("Symbol"));
+		headCurrentPrice.appendChild(document.createTextNode("Current Price"));
+		headMarketCapRank.appendChild(document.createTextNode("Market Carp Rank"));
+		headAth.appendChild(document.createTextNode("All Time High(ath)"));
+
+		headtable.appendChild(headName);
+		headtable.appendChild(headSymbol);
+		headtable.appendChild(headCurrentPrice);
+		headtable.appendChild(headMarketCapRank);
+		headtable.appendChild(headAth);
+
+
+		const tableBody = document.createElement("tbody") //create the body of the table
 
 	for (let index of crypto) {
 
@@ -197,4 +202,6 @@ function tableGenerator(data) {
 }
 
 
-criptoTable(); //call the function to display the table 
+const cryptoURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h%22%20-H%20%22accept:%20application/json";
+
+apiCall(cryptoURL, tableGenerator);

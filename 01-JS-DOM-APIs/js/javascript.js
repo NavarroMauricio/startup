@@ -1,11 +1,12 @@
+window.addEventListener("load",appearInFullLoad);  //with the event "load" the function is executed when the whole page loads even the stylesheet
 
 function appearInFullLoad() { /* Show the 'hello world' when the page is fully loaded */
 
-setTimeout(function () {
+	setTimeout(function () {
 
-	const element = document.getElementById("hide");
-	element.classList.remove("hidden");
-}, 700);
+		const element = document.getElementById("hide");
+		element.classList.remove("hidden");
+	}, 700);
 }
 
 const btn = document.getElementById("btnjoke");

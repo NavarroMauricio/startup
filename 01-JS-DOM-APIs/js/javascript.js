@@ -1,4 +1,5 @@
-window.addEventListener("load",appearInFullLoad);  //with the event "load" the function is executed when the whole page loads even the stylesheet
+
+window.addEventListener("load", appearInFullLoad);  //with the event "load" the function is executed when the whole page loads even the stylesheet
 
 function appearInFullLoad() { /* Show the 'hello world' when the page is fully loaded */
 
@@ -6,7 +7,7 @@ function appearInFullLoad() { /* Show the 'hello world' when the page is fully l
 
 		const element = document.getElementById("hide");
 		element.classList.remove("hidden");
-	}, 700);
+	}, 900);
 }
 
 const btn = document.getElementById("btnjoke");
@@ -39,7 +40,7 @@ function getJoke() {
 
 function showTheJoke(myJson) {
 
-document.getElementById("jokeHere").innerHTML = myJson.value.joke;
+	document.getElementById("jokeHere").innerHTML = myJson.value.joke;
 
 }
 
@@ -48,12 +49,12 @@ document.getElementById("jokeHere").innerHTML = myJson.value.joke;
 
 function errorDetected() {
 
-document.querySelector("#jokeZone").style.backgroundColor = "red";
+	document.querySelector("#jokeZone").style.backgroundColor = "red";
 
-/* you can also use the function below if you also want to show the user that an error happened in the section of the joke
-
-document.getElementById("jokeHere").innerHTML= "An error has occurred";
-*/
+	/* you can also use the function below if you also want to show the user that an error happened in the section of the joke
+	
+	document.getElementById("jokeHere").innerHTML= "An error has occurred";
+	*/
 
 }
 
@@ -122,76 +123,35 @@ function showItem(data) {
 
 function tableGenerator(data) {
 
-		const crypto = data;
+	const crypto = data;
 
 
-		const getTable = document.getElementById("table"); //select the section
+	const getTable = document.getElementById("table"); //select the section
 
-		const table = document.createElement("table"); //create the table
+	const table = document.createElement("table"); //create the table
 
-		const headtable = document.createElement("tr"); //create the head of the table
+	const headtable = document.createElement("tr"); //create the head of the table
 
-		const headName = document.createElement("th");            //assign the articles in the table header
-		const headSymbol = document.createElement("th");
-		const headCurrentPrice = document.createElement("th");
-		const headMarketCapRank = document.createElement("th");
-		const headAth = document.createElement("th");
+	const headElements = ["Name", "Symbol", "Current Price $", "Market Cap Rank", "All Time High $"];
 
-		headName.appendChild(document.createTextNode("name"));
-		headSymbol.appendChild(document.createTextNode("Symbol"));
-		headCurrentPrice.appendChild(document.createTextNode("Current Price"));
-		headMarketCapRank.appendChild(document.createTextNode("Market Carp Rank"));
-		headAth.appendChild(document.createTextNode("All Time High(ath)"));
-
-		headtable.appendChild(headName);
-		headtable.appendChild(headSymbol);
-		headtable.appendChild(headCurrentPrice);
-		headtable.appendChild(headMarketCapRank);
-		headtable.appendChild(headAth);
+	tableComponent("th", headElements, headtable);  //assign the elements in the table header
 
 
-		const tableBody = document.createElement("tbody") //create the body of the table
+	const tableBody = document.createElement("tbody") //create the body of the table
 
 	for (let index of crypto) {
 
 		const line = document.createElement("tr");  //create the table row 
 
-		const name = document.createElement("td");  //create the elements of the table row
+		const lineContent = [index.name, index.symbol, index.current_price.toFixed(4), index.market_cap_rank, index.ath.toFixed(4)]; //necesary elements to get from the api
 
-		const symbol = document.createElement("td");
-
-		const price = document.createElement("td");
-
-		const markerCap = document.createElement("td");
-
-		const ath = document.createElement("td");
-
-		name.appendChild(document.createTextNode(index.name)); //assign the data 
-
-		symbol.appendChild(document.createTextNode(index.symbol));
-
-		price.appendChild(document.createTextNode("$ " + index.current_price.toFixed(4)));
-
-		markerCap.appendChild(document.createTextNode("#" + index.market_cap_rank));
-
-		ath.appendChild(document.createTextNode("$ " + index.ath.toFixed(4)));
-
-
-		line.appendChild(name);
-
-		line.appendChild(symbol);
-
-		line.appendChild(price);
-
-		line.appendChild(markerCap);
-
-		line.appendChild(ath);
-
-
+		tableComponent("td", lineContent, line);
 
 		tableBody.appendChild(line);
 
+
 	}
+
 
 	table.appendChild(headtable);
 
@@ -199,6 +159,22 @@ function tableGenerator(data) {
 
 	getTable.appendChild(table);
 
+
+}
+
+
+//new function to avoid repeat code  while the table is generated
+
+function tableComponent(tagname, textContent, tagFather) {
+
+
+	for (let i of textContent) {
+
+		const aux = document.createElement(tagname);
+		aux.appendChild(document.createTextNode(i));
+		tagFather.appendChild(aux);
+
+	}
 
 }
 

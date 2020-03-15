@@ -1,59 +1,76 @@
+class Logger {
+  log(info) {
+    console.log(`The ${info} event has been emitted`);
+  }
+}
 
-class movie{
-    constructor(name,year,duration){
-        this.title=name;
-        this.year=year;
-        this.duration=duration;
-    }
+class EventEmmiter {
+  constructor() {
+    this.events = {};
+  }
 
-    play() {
-        console.log(`Playing ${this.title}...`);
+  on(eventName, callback) {
+    if (this.events[eventName]) {
+      this.events[eventName].push(callback);
+    } else {
+      this.events[eventName] = [callback];
     }
-    pause () {
-        console.log(`Paused ${this.title}...` );
+  }
+
+  emit(eventName) {
+    if (this.events[eventName]) {
+      this.events[eventName].forEach(fn => {
+        fn(eventName);
+      });
+    } else {
+      console.log(`${eventName} event doesn't exist`);
     }
-    resume() {
-        console.log(`Resuming ${this.title}...` );
+  }
+
+  off(eventName, callback) {
+    if (this.events.has(eventName)) {
+      let listenerList = this.eventList.get(eventName);
+      listenerList.delete(callback);
     }
+  }
+}
+
+class movie extends EventEmmiter {
+  constructor(name, year, duration) {
+    super();
+    this.title = name;
+    this.year = year;
+    this.duration = duration;
+  }
+
+  play() {
+    this.emit("Play");
+  }
+
+  pause() {
+    super.emit("Pause");
+  }
+
+  resume() {
+    super.emit("Resume");
+  }
 }
 
 class actor {
-    constructor(name,age) {
-        this.name=name;
-        this.age=age;
-    }
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 }
 
-class EventEmitter {
-    constructor() {
-      this.events = {};
-    }
+const logger = new Logger();
+const rocky = new movie("rocky", 1976, 242);
 
-    on (eventName, listener) {
-        if(!this.events[eventName]) {
-          this.events[eventName] = [];
-        }     
-        this.events[eventName].push(listener);  
-      }
+const pearlHarbor = new movie("pearl harbor", 2001, 183);
+rocky.on("Play", logger.log);
+rocky.on("Pause", logger.log);
+rocky.on("Resume", logger.log);
 
-      emit (eventName) {
-        const event = this.events[eventName];
-        if( event ) {
-          event.forEach(fn => {
-             fn(eventName);
-           });
-         }
-      }
-      
-      off(eventName,listener) {
-        if(this.events[eventName]) {
-          this.events[eventName] = this.events[eventName].filter(fn => fn!== listener)
-        }
-      }
-  }
-
-const rocky = new movie('rocky',1976,242);
-const pearlHarbor = new movie('pearl harbor',2001,183); 
 rocky.play();
 rocky.pause();
 rocky.resume();

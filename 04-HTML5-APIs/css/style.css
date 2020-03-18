@@ -43,3 +43,24 @@ button {
 	background: yellowgreen;
 	border: 3px dashed rebeccapurple;
 }
+
+.success {
+	background: greenyellow;
+}
+
+.error {
+	background: red;
+}
+
+#drop-zone {
+	width: 100%;
+	border: 10px;
+	border-radius: 10px;
+}
+
+#status {
+	display: inline;
+	padding: 0.6rem;
+	border: 10px;
+	border-radius: 10px;
+}

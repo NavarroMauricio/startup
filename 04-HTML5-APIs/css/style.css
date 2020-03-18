@@ -1,0 +1,45 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: cornflowerblue;
+	margin-left: 15%;
+	margin-right: 15%;
+	text-align: center;
+	padding: 100px;
+}
+
+div {
+	margin-bottom: 4rem;
+}
+
+p {
+	background-color: plum;
+	border: 10px;
+	border-radius: 10px;
+}
+
+textarea {
+	width: 100%;
+	border: 10px;
+	border-radius: 10px;
+}
+
+button {
+	background-color: lightslategray;
+	border: none;
+	color: white;
+	font-size: 1.3rem;
+	border: 10px;
+	border-radius: 10px;
+}
+
+.drag-box {
+	width: 350px;
+	height: 100px;
+	border: 1px solid black;
+	background: white;
+}
+
+.drag-box-light {
+	background: yellowgreen;
+	border: 3px dashed rebeccapurple;
+}

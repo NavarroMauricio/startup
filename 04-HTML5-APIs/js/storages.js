@@ -22,23 +22,27 @@ const request = window.indexedDB.open("IndexedDBTopic-3", 3); //create the index
 let data;
 
 request.onsuccess = () => {
+
     data = request.result;
     console.log("sucess in indexedDB");
 }
 
 request.onupgradeneeded = () => {
+
     data = request.result;
     data.createObjectStore(txtId, { autoIncrement: true })
 
 }
 
 request.onerror = (error) => {
+
     console.log(request.result);
     console.log("Database error : " + error);
 }
 
 
 const savedb = (id, elem) => {
+
     const transaction = data.transaction([id], "readwrite");
     const objectStore = transaction.objectStore(id);
     const aux = objectStore.add(elem);
@@ -46,6 +50,7 @@ const savedb = (id, elem) => {
 
 
 const deleteDB = (id) => {
+
     const transaction = data.transaction([id], "readwrite");
     const objectStore = transaction.objectStore(id);
 
@@ -60,7 +65,6 @@ const saveTextArea = (e) => {  //save in local storage & indexedDB
     try {
         saveLocal(txtId, text);
         savedb(txtId, text.value);
-
 
     } catch (error) {
         console.log("failed" + error);

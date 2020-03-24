@@ -1,0 +1,30 @@
+.mov {
+  background-color: aqua;
+  margin: 1rem;
+  padding: 1.5rem;
+  width: 60%;
+  list-style-type: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 10rem;
+}
+
+.movie-title {
+  text-align: left;
+  font-size: 1.5rem;
+  display: block;
+  font-weight: bold;
+}
+
+.movie-data {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  margin-bottom: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.plot {
+  display: block;
+}

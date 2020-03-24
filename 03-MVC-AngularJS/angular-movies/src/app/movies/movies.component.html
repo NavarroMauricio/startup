@@ -1,0 +1,11 @@
+<h1>Recommended Movies</h1>
+<ul class="movies">
+  <li *ngFor="let movie of movies" class="mov">
+    <span class="movie-title">{{ movie.title | uppercase }}</span>
+    <span class="movie-data">
+      Genre : {{ movie.genre }} | Duration :{{ movie.duration }} | year:
+      {{ movie.year }} |</span
+    >
+    <span class="plot"> plot: {{ movie.description }} </span>
+  </li>
+</ul>

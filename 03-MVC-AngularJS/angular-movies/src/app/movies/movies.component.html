@@ -1,13 +1,13 @@
 <h1>Recommended Movies</h1>
 <ul class="movies">
-  <li *ngFor="let movie of movies" class="mov" (click)="onSelect(movie)">
-    <span class="movie-title">{{ movie.title | uppercase }}</span>
-    <span class="movie-data">
-      Genre : {{ movie.genre }} | Duration :{{ movie.duration }} | year:
-      {{ movie.year }} |</span
-    >
-    <span class="plot"> plot: {{ movie.description }} </span>
+  <li *ngFor="let movie of movies" class="mov">
+    <a routerLink="/detail/{{ movie.id }}">
+      <span class="movie-title">{{ movie.title | uppercase }}</span>
+      <span class="movie-data">
+        Genre : {{ movie.genre }} | Duration :{{ movie.duration }} | year:
+        {{ movie.year }} |</span
+      >
+      <span class="plot"> plot: {{ movie.description }} </span>
+    </a>
   </li>
 </ul>
-
-<app-movie-detail [movie]="selectedMovie"></app-movie-detail>

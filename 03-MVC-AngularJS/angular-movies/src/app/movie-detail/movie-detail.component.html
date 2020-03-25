@@ -1,13 +1,12 @@
-<h1>Recommended Movies</h1>
-<ul class="movies">
-  <li *ngFor="let movie of movies" class="mov" (click)="onSelect(movie)">
+<div *ngIf="movie">
+  <h2>{{ movie.title | uppercase }} Details</h2>
+  <div><span>title: </span>{{ movie.title }}</div>
+  <div>
     <span class="movie-title">{{ movie.title | uppercase }}</span>
     <span class="movie-data">
       Genre : {{ movie.genre }} | Duration :{{ movie.duration }} | year:
       {{ movie.year }} |</span
     >
     <span class="plot"> plot: {{ movie.description }} </span>
-  </li>
-</ul>
-
-<app-movie-detail [movie]="selectedMovie"></app-movie-detail>
+  </div>
+</div>

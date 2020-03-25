@@ -28,3 +28,7 @@
 .plot {
   display: block;
 }
+
+.mov:hover {
+  background-color: cornflowerblue;
+}

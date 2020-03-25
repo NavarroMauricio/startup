@@ -6,7 +6,7 @@ import { MovieDetailComponent } from "./movie-detail/movie-detail.component";
 const routes: Routes = [
   { path: "", redirectTo: "/movies", pathMatch: "full" },
   { path: "movies", component: MoviesComponent },
-  { path: "detail/:title", component: MovieDetailComponent }
+  { path: "detail/:id", component: MovieDetailComponent }
 ];
 
 @NgModule({

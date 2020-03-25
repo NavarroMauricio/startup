@@ -1,5 +1,35 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h1,
+h2 {
+  margin-left: 12rem;
+  color: deepskyblue;
+}
+
+button {
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin: 1rem;
+  margin-left: 12rem;
+}
+
+textarea {
+  display: block;
+  margin-top: 0.3rem;
+}
+
 .mov {
-  background-color: aqua;
+  background-color: deepskyblue;
   margin: 1rem;
   padding: 1.5rem;
   width: 60%;
@@ -31,4 +61,9 @@
 
 .mov:hover {
   background-color: cornflowerblue;
+}
+
+#btn {
+  margin-left: 12rem;
+  width: 62%;
 }

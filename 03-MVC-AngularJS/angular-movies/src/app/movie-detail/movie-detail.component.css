@@ -10,3 +10,13 @@ button {
   height: 50px;
   border-radius: 10px;
 }
+.mov {
+  background-color: deepskyblue;
+  margin: 1rem;
+  padding: 1.5rem;
+  width: 30%;
+  list-style-type: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 0;
+}

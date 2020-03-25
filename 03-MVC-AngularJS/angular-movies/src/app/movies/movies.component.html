@@ -24,7 +24,7 @@
     <label>Genre: <input #movieGenre /> </label>
     <label>duration: <input #movieDuration /> </label>
     <label>year: <input #movieyear /> </label>
-    <label>plot: <input #moviePlot /> </label>
+    <label>plot: <textarea #moviePlot cols="50" rows="10"></textarea> </label>
     <button
       (click)="
         add(
@@ -35,6 +35,7 @@
           moviePlot.value
         )
       "
+      id="btn"
     >
       Add movie
     </button>

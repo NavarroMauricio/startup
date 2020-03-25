@@ -44,6 +44,7 @@ export class MoviesComponent implements OnInit {
       .subscribe(movie => this.movies.push(movie));
   }
 
+  // dropdown form with the button
   public show: boolean = false;
   public buttonName: string = "Show";
 
@@ -51,6 +52,6 @@ export class MoviesComponent implements OnInit {
     this.show = !this.show;
     //change the name of the button
     if (this.show) this.buttonName = "Hide";
-    else this.buttonName = "Show";
+    else this.buttonName = "Add Movie";
   }
 }

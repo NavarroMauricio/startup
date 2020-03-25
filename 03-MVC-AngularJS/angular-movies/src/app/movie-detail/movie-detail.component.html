@@ -1,6 +1,6 @@
 <div *ngIf="movie">
   <h2>{{ movie.title | uppercase }} Details</h2>
-  <div>
+  <div class="mov">
     <span class="movie-title">{{ movie.title | uppercase }}</span>
     <label>
       <input [(ngModel)]="movie.title" placeholder="title" type="text" />

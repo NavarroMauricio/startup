@@ -1,3 +1,5 @@
-* {
-  font-family: Georgia, "Times New Roman", Times, serif;
+h1 {
+  width: 100%;
+  border-bottom: 1.5px solid deepskyblue;
+  color: deepskyblue;
 }

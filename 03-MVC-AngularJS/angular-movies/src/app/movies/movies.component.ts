@@ -29,4 +29,28 @@ export class MoviesComponent implements OnInit {
     this.movies = this.movies.filter(h => h !== movie);
     this.movieService.deleteMovie(movie).subscribe();
   }
+
+  add(name: string, gen: string, dur: number, yearr: number, plot: string) {
+    const aux = {
+      title: name,
+      genre: gen,
+      duration: dur,
+      year: yearr,
+      description: plot
+    };
+
+    this.movieService
+      .addMovie(aux as Movie)
+      .subscribe(movie => this.movies.push(movie));
+  }
+
+  public show: boolean = false;
+  public buttonName: string = "Show";
+
+  showAdd() {
+    this.show = !this.show;
+    //change the name of the button
+    if (this.show) this.buttonName = "Hide";
+    else this.buttonName = "Show";
+  }
 }

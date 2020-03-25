@@ -39,4 +39,8 @@ export class MovieService {
 
     return this.http.delete<Movie>(url, this.httpOptions);
   }
+  /*add a new movie to the server*/
+  addMovie(movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(this.moviesUrl, movie, this.httpOptions);
+  }
 }

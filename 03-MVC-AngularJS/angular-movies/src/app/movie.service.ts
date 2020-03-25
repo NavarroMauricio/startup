@@ -31,4 +31,12 @@ export class MovieService {
   updateMovie(movie: Movie): Observable<any> {
     return this.http.put(this.moviesUrl, movie, this.httpOptions);
   }
+
+  /** delete the movie from the server */
+  deleteMovie(movie: Movie | number): Observable<Movie> {
+    const id = typeof movie === "number" ? movie : movie.id;
+    const url = `${this.moviesUrl}/${id}`;
+
+    return this.http.delete<Movie>(url, this.httpOptions);
+  }
 }

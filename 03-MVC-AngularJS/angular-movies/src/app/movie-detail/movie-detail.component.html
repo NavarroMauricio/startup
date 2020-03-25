@@ -1,13 +1,30 @@
 <div *ngIf="movie">
   <h2>{{ movie.title | uppercase }} Details</h2>
-  <div><span>id: </span>{{ movie.id }}</div>
   <div>
     <span class="movie-title">{{ movie.title | uppercase }}</span>
-    <span class="movie-data">
-      Genre : {{ movie.genre }} | Duration :{{ movie.duration }} | year:
-      {{ movie.year }} |</span
-    >
-    <span class="plot"> plot: {{ movie.description }} </span>
+    <label>
+      <input [(ngModel)]="movie.title" placeholder="title" type="text" />
+      Genre
+    </label>
+    <label>
+      <input [(ngModel)]="movie.genre" placeholder="genre" type="text" />
+      duration
+      <input
+        [(ngModel)]="movie.duration"
+        placeholder="duration"
+        type="number"
+      />
+      year
+      <input [(ngModel)]="movie.year" placeholder="year" type="number" />
+      plot
+      <textarea
+        [(ngModel)]="movie.description"
+        placeholder="plot"
+        cols="50"
+        rows="20"
+      ></textarea>
+    </label>
   </div>
   <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
 </div>

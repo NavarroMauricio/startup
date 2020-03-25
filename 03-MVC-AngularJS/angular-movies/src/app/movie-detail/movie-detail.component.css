@@ -1,0 +1,12 @@
+input,
+textarea {
+  display: block;
+  width: auto;
+  border-radius: 5px;
+}
+
+button {
+  width: 165px;
+  height: 50px;
+  border-radius: 10px;
+}

@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Movie } from "./movie";
 import { Observable, of } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { catchError, map, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -18,11 +17,12 @@ export class MovieService {
 
   getMovies(): Observable<Movie[]> {
     //get the array of movies
+
     return this.http.get<Movie[]>(this.moviesUrl);
   }
 
+  //get the movie selected
   getMovie(id: number): Observable<Movie> {
-    //get the movie selected
     const url = `${this.moviesUrl}/${id}`;
 
     return this.http.get<Movie>(url);
@@ -32,13 +32,15 @@ export class MovieService {
     return this.http.put(this.moviesUrl, movie, this.httpOptions);
   }
 
-  /** delete the movie from the server */
+  /* delete the movie from the server */
   deleteMovie(movie: Movie | number): Observable<Movie> {
     const id = typeof movie === "number" ? movie : movie.id;
+
     const url = `${this.moviesUrl}/${id}`;
 
     return this.http.delete<Movie>(url, this.httpOptions);
   }
+
   /*add a new movie to the server*/
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.moviesUrl, movie, this.httpOptions);

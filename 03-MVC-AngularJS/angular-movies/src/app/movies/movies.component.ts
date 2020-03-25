@@ -10,11 +10,6 @@ import { MovieService } from "../movie.service";
 export class MoviesComponent implements OnInit {
   movies: Movie[];
 
-  /* selectedMovie: Movie;
-  onSelect(movie: Movie): void {
-    this.selectedMovie = movie;
-  }*/
-
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
@@ -25,6 +20,7 @@ export class MoviesComponent implements OnInit {
     this.movieService.getMovies().subscribe(movies => (this.movies = movies));
   }
 
+  //delete the movie
   delete(movie: Movie): void {
     this.movies = this.movies.filter(h => h !== movie);
     this.movieService.deleteMovie(movie).subscribe();
